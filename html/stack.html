@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <title>数据结构 一 栈</title>
+</head>
+<body>
+<h2>数据结构 一 栈之javascript描述</h2>
+<p><strong>栈</strong>是一种特殊的列表，栈内的元素只能通过一端访问，这一端称为栈顶。栈是后入先出的数据结构。</p>
+<p>由于栈具有后入先出的特点，所以任何不在栈顶的元素都无法访问。为了得到栈顶的元素，必须先去掉上面的元素。</p>
+
+<script>
+    function Stack() {
+        this.dataStore = [];
+        this.top = 0; //栈顶
+        this.push = push; // 入栈
+        this.pop = pop; // 出栈并删除
+        this.peek = peek; // 出栈单不删除
+        this.clear = clear;
+        this.getLength = getLength;
+	}
+	function push(el) {
+        this.dataStore[this.top++] = el;
+	}
+	function pop() {
+        return this.dataStore[--this.top];
+	}
+	function peek() {
+		return this.dataStore[this.top-1];
+	}
+	function clear() {
+        this.top = 0;
+	}
+	function getLength() {
+		return this.top;
+	}
+	var ins = new Stack();
+    ins.push('a');
+	ins.push('b');
+	ins.push('c');
+//	console.log(ins.pop())
+//	console.log(ins.pop())
+	console.log(ins.top)
+    function mulBase(num, base) {
+        var s = new Stack();
+        do {
+        	s.push(num % base);
+        	num = Math.floor(num /= base);
+        } while (num > 0);
+        var converted = "";
+        while (s.getLength() > 0) {
+        	converted += s.pop();
+        }
+        return converted;
+	}
+	console.log(mulBase(25,2));
+
+	function isPalindrome(word) {
+        var stack = new Stack(),
+			i = 0,
+            l = word.length;
+        for (; i < l; i++) {
+			stack.push(word.charAt(i))
+        }
+        var rword = "";
+        while (stack.getLength() > 0) {
+        	rword += stack.pop();
+        }
+        return rword === word;
+	}
+	console.log(isPalindrome("rar"));
+	console.log(isPalindrome("test"));
+</script>
+</body>
+</html>

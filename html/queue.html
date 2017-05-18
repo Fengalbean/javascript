@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <title>队列</title>
+</head>
+<body>
+
+<script>
+    function Queue() {
+        this.dataStore = [];
+        this.enqueue = enqueue;
+        this.dequeue = dequeue;
+        this.front = front;
+        this.back = back;
+        this.toString = toString;
+        this.empty = empty;
+	}
+	function enqueue(element) {
+        this.dataStore.push(element)
+	}
+	function dequeue() {
+		this.dataStore.shift()
+	}
+	function front() {
+        return this.dataStore[0];
+	}
+	function back() {
+		return this.dataStore[this.dataStore.length - 1];
+	}
+	function toString() {
+    	var str = '',
+            i = 0,
+            l = this.dataStore.length;
+    	for ( ; i < l; i++) {
+    		str += this.dataStore[i] + "\n";
+        }
+		return str;
+	}
+	function empty() {
+        return this.dataStore.length === 0;
+	}
+</script>
+</body>
+</html>

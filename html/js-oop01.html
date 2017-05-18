@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js-oop01</title>
+</head>
+<body>
+<h1>深入浅出JavaScript</h1>
+<h2>运行时概念</h2>
+<h2>执行上下文</h2>
+<h2>创建对象</h2>
+<h2>继承</h2>
+
+
+
+<script src="../js/util.js"></script>
+<script>
+    var name = "";
+
+	/**
+     * 工厂模式
+     * 解决了创建相似对象的问题，但是却没有解决对象识别的问题
+	 * @param name
+	 * @param age
+	 * @returns {{}}
+	 */
+
+	function personFactory(name,age) {
+		var person = {};
+		person.name = name;
+		person.age = age;
+		return person;
+	}
+
+	/**
+     * 构造函数模式
+	 * @param name
+	 * @param age
+	 * @constructor
+	 */
+	function Parent() {
+		this.name = "zhe parant";
+		this.sayName = function () {
+            alert(this.name)
+		}
+    }
+    function Son() {
+//		Parent.call(this);
+    }
+	Son.prototype = Object.create(Parent.prototype);
+//	Son.prototype.constructor = Son;
+    var a = new Son();
+	console.log(a.sayName());
+</script>
+</body>
+</html>

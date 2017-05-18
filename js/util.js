@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2016/11/26.
+ * Created by Administrator on 2015/11/26.
  */
 
 // 检测数据类型
@@ -21,7 +21,7 @@ function log(str) {
  */
 function isEmptyObject(obj) {
 	if (Object.keys) {
-		return !(Object.keys(obj).length > 0)
+		return Object.keys(obj).length === 0;
 	}
 	for (var prop in obj) {
 		if (obj.hasOwnProperty(prop)) {

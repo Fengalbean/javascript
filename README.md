@@ -1,67 +1,34 @@
-
-# 数字的处理
-
-## 常用的Math方法
-
-- **Math.ceil  向上取整  Math.ceil(4.2) 返回值为5**
-
-- **Math.floor 向下取整  Math.floor(4.2) 返回值为4**
-
-- **Math.round 四舍五入 Math.round(4.2) 返回值为4，  Math.round(4.6)返回5**
-
-- **Math.pow 计算幂等 Math.round(2,4) 返回16**
-
-- **Math.sqrt 开方计算 Math.sqrt(9) 返回3**
-
-- **Math.random 生成0-1的伪随机数**
-
-## 数字与字符串相互转化
-
-var a = 
-String() 
-
-- **将数字转化为拥有x位小数位的形式**
-
-```
-
-function roundTo (base, precison) {
-    var m = Math.pow(10,precison);
-    return Math.round(base * m) / m;
-}
-    
-```
-
-    
-- 创建受约束的随机数
-
-```
-
-function randomBetween (min, max) {
-    return min + Math.floor(Math.random() * (max - min + 1));
-}
-
-    
-```
-- 格式化货币值
+# JavaScript基础实践
 
 
-```
+## JavaScript数据结构与算法
 
-function formatTo (base, precison) {
-    var a = roundTo(base,precison);
-    var s = a.toString();
-    var decimalIndex = s.indexOf('.');
-    if (precison > 0 && decimalIndex < 0) {
-        decimalIndex = s.length;
-        s += '.';
-    }
-    while (decimalIndex + precison + 1 > s.length) {
-        s += '0';
-    }
-    return s;
-}
-    
-```
+### [列表](./html/list.html)
+
+列表是一组有序的数据。每个列表中的数据项称为元素。在JavaScript中，列表中的元素可以是任意数据类型。
+
+### [栈](./html/stack.html)
+
+栈是一种特殊的列表，栈内的元素只能通过一端访问，这一端称为栈顶。栈是后入先出的数据结构。
+
+由于栈具有后入先出的特点，所以任何不在栈顶的元素都无法访问。为了得到栈顶的元素，必须先去掉上面的元素。
+
+### [队列](./html/queue.html)
+
+队列是一种列表，不同的是队列只能在队尾插入元素，在对首删除元素。队列用于存储按顺序排列的数据，先进先出。队列应用比较广泛，提交操作系统执行一些进程，打印任务池，日常排队买东西等等。
+
+### [集合](./html/set.html)
+
+集合是一组无序但彼此之间又有一定相关性的成员构成的，每个成员在集合中只能出现一次。
+
+- 不包含任何成员的空集，全集则是包含一切的成员的集合。
+- 如果两个集合的成员完全相同，则称为两个集合相等
+- 如果一个集合中所有的成员都属于另外一个集合则称前一集和为另一集合的子集
 
 
-## 字符串的处理
+
+## [JavaScript数字处理](./html/math.html)
+
+### Math方法
+
+### 数字之间相互转化
